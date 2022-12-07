@@ -14,22 +14,6 @@ import java.util.List;
 @AllArgsConstructor
 public class MyController {
     private final StudentService service;
-    @GetMapping("/students")
-    public List<Student> showAllStudents(){
-        return service.getAllStudents();
-    }
-
-    @PostMapping("/addStudent")
-    public Student saveStudent(@RequestBody Student student){
-        student.setCreated(LocalDateTime.now());
-        service.saveStudent(student);
-        return student;
-    }
-    @GetMapping("/students/{id}")
-    public List<Student> getStudentById(@PathVariable String id){
-        List<Student> student = service.getStudentByID(id);
-        return student;
-    }
     @GetMapping("/sex")
     public String helloPage(Model model){
         List<Student> students = service.getAllStudents();
