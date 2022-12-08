@@ -25,9 +25,6 @@ public class StudentService {
         return students;
     }
     public Student saveStudent(Student student) {
-        Address address = new Address();
-        address = student.getAddress();
-        addressRepo.save(address);
         return studentRepository.save(student);
     }
     public List<Student> getStudentByID(String id){

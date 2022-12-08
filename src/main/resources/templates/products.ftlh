@@ -36,6 +36,7 @@
     Имя: <input type="text" name="author"/><br><br>
     <input type="submit" value="Добавить товар"/>
 </form>
+
 </body>
 </html>
 
