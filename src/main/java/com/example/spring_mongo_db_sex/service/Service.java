@@ -1,24 +1,31 @@
 package com.example.spring_mongo_db_sex.service;
 
-import com.example.spring_mongo_db_sex.entity.Address;
+import com.example.spring_mongo_db_sex.entity.News;
 import com.example.spring_mongo_db_sex.entity.Student;
 import com.example.spring_mongo_db_sex.repo.AddressRepo;
+import com.example.spring_mongo_db_sex.repo.NewsRepo;
 import com.example.spring_mongo_db_sex.repo.StudentRepository;
 import lombok.AllArgsConstructor;
-import org.springframework.data.mongodb.core.query.Update;
-import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
-
-import static org.springframework.data.mongodb.core.query.Criteria.where;
-import static org.springframework.data.mongodb.core.query.Query.query;
+import java.util.Optional;
 
 @AllArgsConstructor
-@Service
-public class StudentService {
+@org.springframework.stereotype.Service
+public class Service {
     StudentRepository studentRepository;
     AddressRepo addressRepo;
+
+    NewsRepo newsRepo;
+
+    public News getNewsById(String id){
+        return newsRepo.getNewsById(id);
+    }
+
+    public List<News> getAllNews(String job){
+        if(job!=null) return newsRepo.findByJob(job);
+        return newsRepo.findAll();
+    }
 
     public List<Student> getAllStudents(){
         List<Student> students = studentRepository.findAll();
@@ -26,6 +33,9 @@ public class StudentService {
     }
     public Student saveStudent(Student student) {
         return studentRepository.save(student);
+    }
+    public News saveNews(News news) {
+        return newsRepo.save(news);
     }
     public List<Student> getStudentByID(String id){
         List<Student> student = studentRepository.getStudentsById(id);
