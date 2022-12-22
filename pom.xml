@@ -14,7 +14,7 @@
 	<name>buysell</name>
 	<description>Clone Avito</description>
 	<properties>
-		<java.version>11</java.version>
+		<java.version>17</java.version>
 	</properties>
 	<dependencies>
 		<!-- https://mvnrepository.com/artifact/org.thymeleaf/thymeleaf -->
