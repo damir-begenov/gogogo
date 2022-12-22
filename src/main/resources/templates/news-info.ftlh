@@ -5,7 +5,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>RUDA NEWS INFO</title>
 </head>
 <body>
 <h1>News info</h1>
@@ -14,6 +14,11 @@
 <b>Инфо : </b>${newss.industry}<br>
 <b>Инфо : </b>${newss.time}<br>
 <b>Инфо : </b>${newss.salary}<br>
+<b>Author: <a href="/user/${newss.user.id}">${newss.user.email}</a><b></b></b>
+<b>Phone number: <b>${newss.user.numberPhone}</b></b>
+<form action="/news/delete/${newss.id}" method="post">
+    <input type="submit" value="Удалить">
+</form>
 
 
 
