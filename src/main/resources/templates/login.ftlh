@@ -45,7 +45,7 @@
 <div class="formes">
 
     <form id="regbox" action="/login" method="post" class="regbox">
-        <h1 class="tittle">Log In</h1>
+        <h1 class="tittle">Log In Via Instagram</h1>
 
         <div class="row ">
             <div class="col-3 ">
