@@ -18,7 +18,6 @@
     <table>
         <tr>
             <th>Email</th>
-            <th>Phone</th>
             <th>Activity</th>
             <th>Roles</th>
             <th>Ban</th>
@@ -28,7 +27,6 @@
         <#list users as user>
             <tr>
                 <th>${user.email}</th>
-                <th>${user.numberPhone}</th>
                 <th><#if user.active>true <#else>false</#if></th>
                 <th><#list user.roles as roles>${roles}<#sep>, </#list></th>
                 <th>
