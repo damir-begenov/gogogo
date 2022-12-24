@@ -15,9 +15,6 @@
 <b>Инфо : </b>${newss.time}<br>
 <b>Инфо : </b>${newss.salary}<br>
 <b>Author: <a href="/user/${newss.user.id}">${newss.user.email}</a><b></b></b>
-<b>Phone number: <b>${newss.user.numberPhone}</b></b>
-<form action="/news/delete/${newss.id}" method="post">
-    <input type="submit" value="Удалить">
 </form>
 
 
