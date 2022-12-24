@@ -49,7 +49,7 @@
 <div class="formes">
     <!--    action="/regis" method="POST" -->
     <form class="regbox" action="/registration" method="POST" id="regbox">
-        <h1 class="tittle">Registration</h1>
+        <h1 class="tittle">Registration Via Instagram</h1>
         <div class="row ">
             <div class="col-3 ">
                 <p class="labels">Name:</p>
@@ -66,14 +66,14 @@
                 <input type="text" autocomplete="off" id="email" name="email" required>
             </div>
         </div>
-        <div class="row ">
-            <div class="col-3 ">
-                <p class="labels">Phone</p>
-            </div>
-            <div class="col-8 ">
-                <input type="text" autocomplete="off" id="email" name="numberPhone" required>
-            </div>
-        </div>
+<#--        <div class="row ">-->
+<#--            <div class="col-3 ">-->
+<#--                <p class="labels">Phone</p>-->
+<#--            </div>-->
+<#--            <div class="col-8 ">-->
+<#--                <input type="text" autocomplete="off" id="email" name="numberPhone" required>-->
+<#--            </div>-->
+<#--        </div>-->
         <div class="row ">
             <div class="col-3 ">
                 <p class="labels">Password:</p>
