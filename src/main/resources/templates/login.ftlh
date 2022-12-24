@@ -45,7 +45,7 @@
 <div class="formes">
 
     <form id="regbox" action="/login" method="post" class="regbox">
-        <h1 class="tittle">Damir convince you to Log In With YOUR IG ACCOUNT</h1>
+        <h1 class="tittle">Log In</h1>
 
         <div class="row ">
             <div class="col-3 ">
@@ -63,6 +63,7 @@
                 <input type="password" id="password" name="password" required>
             </div>
         </div>
+
         <input type="hidden" name="_csrf" value="${_csrf.token}">
         <div class="confirm">
             <button type="submit" class="confirmbutton" > <a >Log In</a> </button>

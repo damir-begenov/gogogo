@@ -21,6 +21,7 @@ public class User implements UserDetails {
     private String name;
     private boolean active;
     private String password;
+    private String password2;
 
     private Set<Role> roles;
     @DBRef

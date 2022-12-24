@@ -24,6 +24,7 @@ public class UserService {
         String userEmail = user.getEmail();
         if (userRepository.findByEmail(userEmail) != null) return false;
         user.setActive(true);
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
         Set<Role> rolee = new HashSet<>();
         rolee.add(Role.ROLE_USER);
         user.setRoles(rolee);

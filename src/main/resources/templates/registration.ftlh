@@ -82,6 +82,14 @@
                 <input type="password" autocomplete="off" id="password" name="password" >
             </div>
         </div>
+        <div class="row ">
+            <div class="col-3 ">
+                <p class="labels">Сonfirm password:</p>
+            </div>
+            <div class="col-8 ">
+                <input type="password" id="password" name="password2" required>
+            </div>
+        </div>
         <input type="hidden" name="_csrf" value="${_csrf.token}">
         <div class="confirm">
             <input type="submit" class="confirmbutton" value="Sign Up">
