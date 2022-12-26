@@ -94,6 +94,7 @@
 
 
     <#list newss as news>
+
         <div class="boxone">
             <img class="jobicon1" width="100px" height="100px" src="${news.image}">
             <p class="labss"><strong>${news.industry}</strong>${news.country}</p>
@@ -101,7 +102,13 @@
             <p class="employees">${news.employees}</p>
             <img  class="active" src="images\active.png">
             <p class="descr">${news.description}</p>
-            <p class="learn"><a href="/news/${news.id}">Learn more</a></p>
+            <p class="learn">
+                <#if news.apply??>
+                <#list news.apply as aplly>
+                    <a href="/user/${aplly.id}">${aplly.email}</a>
+                <#else>nobody applied
+                </#list>
+                </#if></p>
             <div class="appone">
                 <p class="time">${news.time}</p>
                 <p class="jobone">${news.job}</p>
@@ -111,15 +118,16 @@
                 <div class="type">
                     <p class="realtype">${news.time}</p>
                 </div>
-                <img class="star" src="images\staar.png">
-                <button class="apply" name="appl" type="button">
-                    Apply
-                </button>
-                <form action="/news/delete/${news.id}" method="post">
-                    <input type="submit" value="Удалить">
 
+                <img class="star" src="images\staar.png">
+                <form action="/news/delete/${news.id}" method="post">
+                    <input type="hidden" name="_csrf" value="${_csrf.token}">
+                    <input type="submit" value="Delete"/>
+                </form>
             </div>
+
         </div>
+
     <#else>
         <h3 class="tt">Sorry, no vacancies that satisfy your requirements... Calm down and stay in bed</h3>
     </#list>

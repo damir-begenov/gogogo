@@ -27,7 +27,6 @@ public class MyController {
         List<News> news = service.getAllNews(job);
         model.addAttribute("news",news);
         model.addAttribute("user",service.getUserByPrincipal(principal));
-        model.addAttribute("user",service.getUserByPrincipal(principal));
         return "vacancies";
     }
     @GetMapping("/userNews")
@@ -60,8 +59,16 @@ public class MyController {
     }
     @PostMapping("/news/delete/{id}")
     public String deleteNews(@PathVariable String id){
+        System.out.println("fsfd");
         service.deleteNews(id);
-        return "redirect:/";
+        return "redirect:/userNews";
+    }
+    @PostMapping("/news/apply/{id}")
+    public String applyToNews(@PathVariable String id, Principal principal){
+        System.out.println("fsdffff");
+        service.apply(principal,id);
+        System.out.println("apply");
+        return "redirect:/vacancies";
     }
 
 

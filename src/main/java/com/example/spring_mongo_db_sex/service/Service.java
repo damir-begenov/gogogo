@@ -7,10 +7,7 @@ import com.example.spring_mongo_db_sex.repo.UserRepository;
 import lombok.AllArgsConstructor;
 
 import java.security.Principal;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 @AllArgsConstructor
 @org.springframework.stereotype.Service
@@ -22,7 +19,8 @@ public class Service {
 
 
     public void deleteNews(String id){
-         newsRepo.deleteById(id);
+        System.out.println("fsfd");
+        newsRepo.deleteNewsById(id);
     }
 
     public News getNewsById(String id){
@@ -36,8 +34,17 @@ public class Service {
     public News saveNews(Principal principal,News news) {
         news.setUser(getUserByPrincipal(principal));
         getUserByPrincipal(principal).setNews(Collections.singletonList(news));
+        news.setApply(new ArrayList<User>());
         System.out.println( getUserByPrincipal(principal).getEmail());
         return newsRepo.save(news);
+    }
+    public News apply(Principal principal,String id){
+        News newss = newsRepo.getNewsById(id);
+        User user = getUserByPrincipal(principal);
+        List<User> userz = newss.getApply() ;
+        userz.add(user);
+        newss.setApply(userz);
+        return newsRepo.save(newss);
     }
     public User getUserByPrincipal(Principal principal) {
         if (principal == null) return new User();
