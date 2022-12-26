@@ -8,7 +8,7 @@
     <title>User-info</title>
 </head>
 <body>
-<h1>Information about User : ${user.email}</h1>
+<h1>Information about User : ${user.email} , ${user.name} , ${user.numberPhone}</h1>
 <#list news as news>
     <div>
         <p ><b>${news.country}</b> ${news.salary} тг. |  <a href="/news/${news.id}">Подробнее</a>
