@@ -42,22 +42,22 @@
                 </li>
             </#if>
         </ul>
-            <ul class="nav-user ">
-                <#if user.email??>
-                    <li>Имя Пользователя  <i>${user.email}</i></li>
-                    <form action="/logout" method="post">
-                        <input type="hidden" name="_csrf" value="${_csrf.token}">
-                        <input type="submit" value="Выйти"/>
-                    </form>
-                    <#if user.isAdmin()>
-                        <a href="/admin">Admin Panel</a>
-                    </#if>
-                <#else> <button class="login ">
-                    <a href="/login">Log In</a>
-                </button>
+        <ul class="nav-user ">
+            <#if user.email??>
+                <li>Имя Пользователя  <i>${user.email}</i></li>
+                <form action="/logout" method="post">
+                    <input type="hidden" name="_csrf" value="${_csrf.token}">
+                    <input type="submit" value="Выйти"/>
+                </form>
+                <#if user.isAdmin()>
+                    <a href="/admin">Admin Panel</a>
                 </#if>
+            <#else> <button class="login ">
+                <a href="/login">Log In</a>
+            </button>
+            </#if>
 
-            </ul>
+        </ul>
         </ul>
         <div class="toggles ">
             <div class="account ">
@@ -104,10 +104,10 @@
             <p class="descr">${news.description}</p>
             <p class="learn">
                 <#if news.apply??>
-                <#list news.apply as aplly>
-                    <a href="/user/${aplly.id}">${aplly.email}</a>
-                <#else>nobody applied
-                </#list>
+                    <#list news.apply as aplly>
+                        <a href="/user/${aplly.id}">${aplly.email}</a>
+                    <#else>nobody applied
+                    </#list>
                 </#if></p>
             <div class="appone">
                 <p class="time">${news.time}</p>

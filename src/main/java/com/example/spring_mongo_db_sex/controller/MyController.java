@@ -47,10 +47,10 @@ public class MyController {
         return "redirect:/";
     }
     @GetMapping("/help")
-        public String helpPage(Principal principal,Model model){
+    public String helpPage(Principal principal,Model model){
         model.addAttribute("user",service.getUserByPrincipal(principal));
         return "help";
-        }
+    }
     @GetMapping("/news/{id}")
     public String newsById(@PathVariable String id ,Model model ,Principal principal){
         model.addAttribute("newss",service.getNewsById(id));

@@ -11,6 +11,7 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
 
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -27,8 +28,9 @@ public class News {
     private String image;
     private int employees;
     private String description;
+    @DBRef
     private User user;
-
+    @DBRef
     private List<User> apply;
 
     public User getUser(User user) {
