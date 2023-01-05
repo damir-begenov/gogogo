@@ -92,42 +92,48 @@
         </ul>
     </section>
 
-    <#list news as newss>
+    <#list newss as news>
+
         <div class="boxone">
-            <img class="jobicon1" width="100px" height="100px" src="${newss.image}">
-            <p class="labss"><strong>${newss.industry}</strong> ${newss.country}</p>
+            <img class="jobicon1" width="100px" height="100px" src="data:image/jpeg;base64,${news.image?if_exists}">
+            <p class="labss"><strong>${news.industry}</strong>${news.country}</p>
             <img class="users" width="20px" height="20px" src="images\users.png">
-            <p class="employees">${newss.employees}</p>
+            <p class="employees">${news.employees}</p>
             <img  class="active" src="images\active.png">
-            <p class="descr">${newss.description}</p>
-            <p class="learn"><a href="/news/${newss.id}">Learn more</a></p>
+            <p class="descr">${news.description}</p>
+            <p class="learn">
+                <#if news.apply??>
+                    <#list news.apply as aplly>
+                        <a href="/user/${aplly.id}">${aplly.email}</a>
+                    <#else>nobody applied
+                    </#list>
+                </#if></p>
             <div class="appone">
-                <p class="time">${newss.time}</p>
-                <p class="jobone">${newss.job}</p>
+                <p class="time">${news.time}</p>
+                <p class="jobone">${news.job}</p>
                 <div class="salary">
-                    <p class="realsalary">${newss.salary}</p>
+                    <p class="realsalary">${news.salary}</p>
                 </div>
                 <div class="type">
-                    <p class="realtype">${newss.time}</p>
+                    <p class="realtype">${news.time}</p>
                 </div>
-                <img class="star" src="images\staar.png">
-                <#if user.email??>
-                    <form action="/news/apply/${newss.id}" method="post">
-                        <input type="hidden" name="_csrf" value="${_csrf.token}">
-                        <button class="apply" name="appl" type="submit">
-                            Apply
-                        </button>
-                    </form>
-                    <#else><button class="apply" name="appl" type="button"><a href="/login">Apply</a></button>
-                </#if>
 
+                <img class="star" src="images\staar.png">
+                <form action="/news/delete/${news.id}" method="post">
+                    <input type="hidden" name="_csrf" value="${_csrf.token}">
+                    <input type="submit" value="Delete"/>
+                </form>
             </div>
+
         </div>
+
     <#else>
         <h3 class="tt">Sorry, no vacancies that satisfy your requirements... Calm down and stay in bed</h3>
     </#list>
-
 </div>
+
+
+
 <div id="footer" class="container">
 
 </div>
@@ -137,6 +143,6 @@
         $(this).addClass('search-filter-active').siblings().removeClass('search-filter-active')
     });
 </script>
-</div>
+
 </body>
 </html>

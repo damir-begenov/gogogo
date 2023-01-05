@@ -8,6 +8,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.security.Principal;
 import java.util.List;
@@ -46,8 +47,8 @@ public class MyController {
     }
 
     @PostMapping("/news/create")
-    public String createVacancy(News news, Principal principal){
-        service.saveNews(principal,news,service.getUserByPrincipal(principal));
+    public String createVacancy(@RequestParam("file") MultipartFile file,News news, Principal principal){
+        service.saveNews(principal,news,service.getUserByPrincipal(principal),file);
         return "redirect:/createvacanci";
     }
     @GetMapping("/help")

@@ -51,7 +51,7 @@
 
 
 <div class="formes">
-    <form action="/news/create" method="POST" class="regbox">
+    <form action="/news/create" method="POST" class="regbox" enctype="multipart/form-data">
         <div class="row ">
             <div class="col-3 ">
                 <p class="labels">Country:</p>
@@ -124,13 +124,10 @@
                 <input type="number" id="salary" name="salary">
             </div>
         </div>
-        <div class="row ">
-            <div class="col-3 ">
-                <p class="labels">Image:</p>
-            </div>
-            <div class="col-8 ">
-                <input type="text" id="image" name="image">
-            </div>
+        <div class="custom-file mb-4">
+            <input type="file" name="file" class="custom-file-input"
+                   id="customFile"> <label class="custom-file-label"
+                                           for="customFile">Product Image</label>
         </div>
         <div class="row ">
             <div class="col-3 ">

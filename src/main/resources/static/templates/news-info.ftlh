@@ -9,15 +9,13 @@
 </head>
 <body>
 <h1>News info</h1>
-<b>Инфо : </b>${newss.company}<br>
-<b>Инфо : </b>${newss.description}<br>
-<b>Инфо : </b>${newss.industry}<br>
-<b>Инфо : </b>${newss.time}<br>
-<b>Инфо : </b>${newss.salary}<br>
-<b>Author: <a href="/user/${newss.user.id}">${newss.user.email}</a><b></b></b>
+<b>Компания : </b>${newss.company}<br>
+<b>Описание : </b>${newss.description}<br>
+<b>Индустрия : </b>${newss.industry}<br>
+<b>Время работы : </b>${newss.time}<br>
+<b>Зарплата : </b>${newss.salary}<br>
+<b>Автор: <a href="/user/${newss.user.id}">${newss.user.email}</a><b></b></b>
 </form>
-
-
 
 <hr>
 </body>
