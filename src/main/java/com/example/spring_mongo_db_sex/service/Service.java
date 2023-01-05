@@ -31,7 +31,7 @@ public class Service {
         if(job!=null) return newsRepo.findByJob(job);
         return newsRepo.findAll();
     }
-    public News saveNews(Principal principal,News news) {
+    public News saveNews(Principal principal,News news,User user) {
         news.setUser(getUserByPrincipal(principal));
         getUserByPrincipal(principal).setNews(Collections.singletonList(news));
         news.setApply(new ArrayList<User>());
@@ -51,7 +51,9 @@ public class Service {
         return userRepository.findByEmail(principal.getName());
     }
     public List<News> findNewsByUserEmail(String email){
+
         return newsRepo.findNewsByUser_Email(email);
     }
 
 }
+

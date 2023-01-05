@@ -28,7 +28,6 @@ public class News {
     private String image;
     private int employees;
     private String description;
-    @DBRef
     private User user;
     @DBRef
     private List<User> apply;

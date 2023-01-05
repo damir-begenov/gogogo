@@ -15,7 +15,6 @@
 <b>Инфо : </b>${newss.time}<br>
 <b>Инфо : </b>${newss.salary}<br>
 <b>Author: <a href="/user/${newss.user.id}">${newss.user.email}</a><b></b></b>
-<b>Phone number: <#if user.numberPhone??>${user.numberPhone}<#else>-</#if></b>
 </form>
 
 

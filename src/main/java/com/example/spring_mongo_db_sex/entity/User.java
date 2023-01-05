@@ -24,7 +24,6 @@ public class User implements UserDetails {
     private String password2;
 
     private Set<Role> roles;
-    @DBRef
     private List<News> news = new ArrayList<>();
     private LocalDateTime dateOfCreated;
 

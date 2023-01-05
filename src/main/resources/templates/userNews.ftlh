@@ -92,7 +92,6 @@
         </ul>
     </section>
 
-
     <#list newss as news>
 
         <div class="boxone">

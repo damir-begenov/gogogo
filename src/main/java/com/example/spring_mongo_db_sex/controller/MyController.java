@@ -1,7 +1,9 @@
 package com.example.spring_mongo_db_sex.controller;
 
 import com.example.spring_mongo_db_sex.entity.News;
+import com.example.spring_mongo_db_sex.entity.User;
 import com.example.spring_mongo_db_sex.service.Service;
+import com.example.spring_mongo_db_sex.service.UserService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,6 +16,7 @@ import java.util.List;
 @AllArgsConstructor
 public class MyController {
     private final Service service;
+    private final UserService userService;
 
     @GetMapping("/")
     public String helloPage(@RequestParam(name = "job" ,required = false) String job,Model model,Principal principal){
@@ -30,9 +33,10 @@ public class MyController {
         return "vacancies";
     }
     @GetMapping("/userNews")
-    public String userNews(Model model,Principal principal){
+    public String userNews(Model model,Principal principal,News news, User user){
+        String emaill = service.getUserByPrincipal(principal).getEmail();
         model.addAttribute("user",service.getUserByPrincipal(principal));
-        model.addAttribute("newss",service.findNewsByUserEmail(service.getUserByPrincipal(principal).getEmail()));
+        model.addAttribute("newss",service.findNewsByUserEmail(emaill));
         return "userNews";
     }
     @GetMapping("/createvacanci")
@@ -43,8 +47,8 @@ public class MyController {
 
     @PostMapping("/news/create")
     public String createVacancy(News news, Principal principal){
-        service.saveNews(principal,news);
-        return "redirect:/";
+        service.saveNews(principal,news,service.getUserByPrincipal(principal));
+        return "redirect:/createvacanci";
     }
     @GetMapping("/help")
     public String helpPage(Principal principal,Model model){
@@ -70,6 +74,10 @@ public class MyController {
         System.out.println("apply");
         return "redirect:/vacancies";
     }
-
+    @GetMapping("/user-page")
+    public String userPage(Principal principal,Model model){
+        model.addAttribute("user",service.getUserByPrincipal(principal));
+        return "user-page";
+    }
 
 }

@@ -12,7 +12,6 @@ public interface NewsRepo extends MongoRepository<News,String> {
     public News getNewsById(String id);
     public News getNewsByUser(User user);
     public List<News> findNewsByUser_Email(String email);
-
     public News deleteNewsById(String id);
 
 }

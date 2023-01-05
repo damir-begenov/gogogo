@@ -9,6 +9,11 @@
 </head>
 <body>
 ${user.name}
-
+<div>
+    gdfgf
+    <div>
+        ${user.email}
+    </div>
+</div>
 </body>
 </html>
